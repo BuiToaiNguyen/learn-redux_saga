@@ -1,5 +1,6 @@
-import {delay, put, takeEvery, takeLatest} from '@redux-saga/core/effects';
+import {delay, put, takeEvery, takeLatest,all} from '@redux-saga/core/effects';
 import { PayloadAction } from '@reduxjs/toolkit';
+import { authSaga } from '../features/auth/pages/authSaga';
 import { increment, incrementSaga, incrementSagaSuccess } from '../features/counter/counterSlice';
 
 
@@ -15,6 +16,5 @@ export function *handleIncrement(action : PayloadAction<number> ){
 
 
 export  function * rootSaga(){
-    console.log("heloo")
-    yield takeEvery(incrementSaga.toString(),handleIncrement)
+    yield  all([authSaga()]);
 }

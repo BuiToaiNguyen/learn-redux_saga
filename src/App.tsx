@@ -3,9 +3,9 @@ import { Counter } from './features/counter/Counter';
 import postApi from './api/postApi';
 import todoApi from './api/todoApi';
 import Login from './features/auth/pages/Login';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Link, Navigate } from 'react-router-dom';
 import Admin from './components/layout/Admin';
-import { NotFound } from './components/common';
+import { NotFound ,PrivateRoute} from './components/common';
 
 function App() {
 
@@ -14,12 +14,10 @@ function App() {
     <div >
       <Routes>
         <Route path='/login' element={<Login/>} ></Route>
+        <Route path='/admin' element={<Admin/>} ></Route>
 
-        <Route path='/admin'  element={<Admin/>}></Route>
-        <Route path="" element={<NotFound/>}></Route>
+      </Routes>
 
-      </Routes> 
-      <div>helo</div>
          </div>
 
   );
