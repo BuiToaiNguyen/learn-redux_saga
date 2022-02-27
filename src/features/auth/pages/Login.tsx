@@ -2,7 +2,11 @@ import { Box, Button, Paper, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/node_modules/@material-ui/styles'
 import React from 'react'
 import { useDispatch } from 'react-redux';
+import { useAppSelector } from '../../../app/hooks';
 import {authAction} from '../pages/authSlice'
+import { selectIsLogged,selectIsLogging } from './authSlice';
+import { useHistory} from 'react-router-dom';
+
 const useStyle = makeStyles((theme) => ({
 
     root:{
@@ -20,6 +24,7 @@ const useStyle = makeStyles((theme) => ({
 }))
 export default function Login() {
  const  classs=useStyle();
+ const history = useHistory();
 
  const dispatch = useDispatch();
 const handleLogin=()=>{
@@ -27,7 +32,9 @@ const handleLogin=()=>{
     userName:"",
     password:"",
   }))
+  history.push('/admin')
 }
+console.log(useAppSelector(selectIsLogged))
   return (
     <div className={classs.root}> 
       <Paper elevation={3}>
@@ -42,7 +49,7 @@ const handleLogin=()=>{
 
 
       </Paper>
-
+{/* <h1>{selectIsLogged}</h1> */}
     </div>
   )
 }

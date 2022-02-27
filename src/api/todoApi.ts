@@ -2,13 +2,20 @@ import { axiosClient } from "./axiosApi";
 import {ListParams, ListResponse, Todo } from "../models"
 
 const todoApi ={
-    getAll(params:ListParams): Promise<ListResponse<Todo>>{
+    getAll(params:any): Promise<ListResponse<Todo>>{
         const url ="/todos"
         return axiosClient.get(url,{ params
 
         })
         
     },
+    // getAll(params:ListParams): Promise<ListResponse<Todo>>{
+    //     const url ="/todos"
+    //     return axiosClient.get(url,{ params
+
+    //     })
+        
+    // },
     getById(id:string): Promise<ListResponse<Todo>>{
         const url =`/todos/${id}`
         return axiosClient.get(url)

@@ -1,5 +1,5 @@
 @baseURL = https://jsonplaceholder.typicode.com
 # @name getAll
-GET {{baseURL}}/posts
+GET {{baseURL}}/todos
 
 

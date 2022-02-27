@@ -42,5 +42,6 @@ const authSlice = createSlice({
 })
 export const authAction = authSlice.actions;
 //selector 
-export const selectIsLogging = (state :any)=> state.auth.isLogging
+export const selectIsLogging = (state :any) => state.auth.logging
+export const selectIsLogged = (state :any) => state.auth.islogged
 export const authReducer = authSlice.reducer;

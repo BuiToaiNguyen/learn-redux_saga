@@ -1,20 +1,15 @@
-import {delay, put, takeEvery, takeLatest,all} from '@redux-saga/core/effects';
+import {delay, put, takeEvery, takeLatest,all,take,fork} from '@redux-saga/core/effects';
 import { PayloadAction } from '@reduxjs/toolkit';
+import { forwardRef } from 'react';
 import { authSaga } from '../features/auth/pages/authSaga';
+import { LoginPayload, authAction } from '../features/auth/pages/authSlice';
 import { increment, incrementSaga, incrementSagaSuccess } from '../features/counter/counterSlice';
 
 
 
 
-export function *handleIncrement(action : PayloadAction<number> ){
-    yield delay(2000)
-
-    yield put(incrementSagaSuccess(action.payload))
-
-
-}
 
 
 export  function * rootSaga(){
-    yield  all([authSaga()]);
+    yield  fork(authSaga)
 }
