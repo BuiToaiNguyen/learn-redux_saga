@@ -8,6 +8,7 @@ export interface AuthState {
     currentUser?:User
 };
 export interface LoginPayload {
+    id:string;
     userName:string;
     password:string;
 };

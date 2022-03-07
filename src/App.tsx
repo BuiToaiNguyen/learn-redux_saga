@@ -16,8 +16,10 @@ function App() {
 const dispatch = useAppDispatch();
 const history = useHistory();
     useEffect(()=>{
+      
 
       todoApi.getAll({_limit:10}).then(response => dispatch(todoActions.setTodoJS(response)))
+
 },[])
   return (
     <div >
@@ -26,12 +28,7 @@ const history = useHistory();
         <Route path='/admin' ><Admin/> </Route>
 
       </Switch>
-      <Button color="primary" variant="contained"
-      onClick={()=>{dispatch(authAction.logout())
-        history.push("/login")
-      }
-
-      }>ĐĂNG XUẤT</Button>
+      
  
          </div>
 

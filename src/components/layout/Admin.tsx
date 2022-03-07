@@ -10,6 +10,7 @@ import SideBar from '../common/SideBar';
 import {Main} from '../common/Main';
 import Dashboard from '../../features/dashboard';
 import {Todo} from '../../features/todo';
+import TailWind from '../../features/github/index';
 const useStyles = makeStyles((theme) => ({
   root: {
     minHeight:'100vh',
@@ -57,7 +58,13 @@ export default function Admin() {
         <Box className={classes.sidebar}><SideBar/></Box>
         <Box className={classes.main}>
         <Switch>
-       <Route path='/admin/dashboard'> <Dashboard/></Route>
+       <Route path='/admin/dashboard'><Dashboard/>
+       <Route path='/admin/dashboard/post'> <TailWind/></Route>
+       
+       </Route>
+
+
+         
        <Route path='/admin/todo'> <Todo/> </Route>
         </Switch>
         </Box>

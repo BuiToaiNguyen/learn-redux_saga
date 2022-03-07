@@ -7,6 +7,9 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import { useHistory } from 'react-router-dom';
+import { useAppDispatch } from '../../app/hooks';
+import { authAction } from '../../features/auth/pages/authSlice';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,7 +25,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Header() {
   const classes = useStyles();
-
+  const dispatch = useAppDispatch();
+  const history = useHistory();
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -30,7 +34,12 @@ export default function Header() {
           <Typography variant="h6" className={classes.title}>
             News
           </Typography>
-          <Button color="inherit">Logout</Button>
+          <Button color="primary" variant="contained"
+      onClick={()=>{dispatch(authAction.logout())
+        history.push("/login")
+      }
+
+      }>ĐĂNG XUẤT</Button>
         </Toolbar>
       </AppBar>
     </div>

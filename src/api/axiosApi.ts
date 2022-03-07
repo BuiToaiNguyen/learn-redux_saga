@@ -9,6 +9,11 @@ export const axiosClient = axios.create(
     
     }
 )
+export const axiosClientGitHub = axios.create(
+    {baseURL : 'https://jsonplaceholder.typicode.com',
+    
+    }
+)
 axiosClient.interceptors.request.use(function (config:AxiosRequestConfig) {
     // Do something before request is sent
     return config;

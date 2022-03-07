@@ -13,7 +13,7 @@ import { todoActions } from '../../todo/todoSlice';
 
  function* handleLogin(payload : LoginPayload ){
     localStorage.setItem("access_token","login");
-    yield put(authAction.loginSuccess({id:1,name:"toainguyen"}))
+    yield put(authAction.loginSuccess({id:payload.id,name:payload.userName,pass:payload.password}))
     // yield put(push('/admin'))
     // history.push("/admin")
 }
